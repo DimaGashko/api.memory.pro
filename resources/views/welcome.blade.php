@@ -94,7 +94,7 @@
                     <a target="_blank" rel="noopener noreferrer" href="https://online-memory.pro">Memory.pro</a>
                     <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/api.memory.pro">API repo</a>
                     <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/frontend.memory.pro">Frontend repo</a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/">Contactsx</a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/">Contacts</a>
                 </div>
             </div>
         </div>
