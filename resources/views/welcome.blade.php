@@ -6,10 +6,9 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-        <!-- Styles -->
         <style>
             html, body {
                 background-color: #212121;
@@ -46,6 +45,8 @@
 
             .title {
                 font-size: calc(5vw + 20px);
+                margin: 0;
+
                 text-transform: uppercase;
             }
 
@@ -93,7 +94,7 @@
                     <a target="_blank" rel="noopener noreferrer" href="https://online-memory.pro">Memory.pro</a>
                     <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/api.memory.pro">API repo</a>
                     <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/frontend.memory.pro">Frontend repo</a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/">Contacts</a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/">Contactsx</a>
                 </div>
             </div>
         </div>
