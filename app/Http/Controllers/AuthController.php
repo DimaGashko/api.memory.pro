@@ -22,7 +22,7 @@ class AuthController extends Controller
       }
 
       return response()
-         ->json(['message' => 'success'], 200)
+         ->json(Auth::user(), 200)
          ->cookie('token', $token, null, '/', null, false, true);
    }
 
@@ -39,6 +39,8 @@ class AuthController extends Controller
       LoginService $loginService
    ) {
       $this->register($request, $userService);
+      $request->usernameOrEmail = $request->username;
+
       return $this->login($request, $loginService);
    }
 

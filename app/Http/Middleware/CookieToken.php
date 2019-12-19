@@ -15,7 +15,7 @@ class CookieToken
     *
     * -H 'Authorization: Bearer eyJ0eXAiOiJKV...'
     * or
-    * -H 'cookie: access_token=eyJ0eXAiOiJKV1...'
+    * -H 'cookie: token=eyJ0eXAiOiJKV1...'
     *
     * @param \Illuminate\Http\Request $request
     * @param \Closure $next
@@ -27,7 +27,7 @@ class CookieToken
          return $next($request);
       }
 
-      $cookieToken = $request->cookie('access_token');
+      $cookieToken = $request->cookie('token');
       $request->headers->set('Authorization', "Bearer $cookieToken");
 
       return $next($request);
