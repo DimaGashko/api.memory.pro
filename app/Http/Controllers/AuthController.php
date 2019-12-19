@@ -23,7 +23,7 @@ class AuthController extends Controller
 
       return response()
          ->json(['message' => 'success'], 200)
-         ->cookie('access_token', $token, null, '/', null, false, true);
+         ->cookie('token', $token, null, '/', null, false, true);
    }
 
    public function register(RegisterRequest $request, UserService $userService)

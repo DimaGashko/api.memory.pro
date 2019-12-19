@@ -61,7 +61,7 @@ class UserService
          'email' => ['nullable', 'string', 'email', 'max:255'],
          'first_name' => ['nullable', 'string', 'min:2', 'max:255'],
          'last_name' => ['nullable', 'string', 'min:2', 'max:255'],
-         'birth' => ['nullable', 'data'],
+         'birth' => ['nullable', 'date'],
       ]);
    }
 }
