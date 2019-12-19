@@ -15,10 +15,12 @@ class AuthController extends Controller
    
    public function login(Request $request, LoginService $loginService)
    {
-      $token = $loginService->login($request->email, $request->password);
+      $token = $loginService->login($request->usernameOrEmail, $request->password);
+
       if (!$token) {
          return response()->json(['message' => 'Checkout your credentials'], 401);
       }
+
       return response()
          ->json(['message' => 'success'], 200)
          ->cookie('access_token', $token, null, '/', null, false, true);

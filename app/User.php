@@ -9,13 +9,13 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
 /**
- * @property string username
+ * @property string $username
  * @property string $email
  * @property string $first_name
  * @property string $last_name
  * @property string $avatar
  * @property Carbon $birth
- * @property int remembered
+ * @property int $remembered
  * @property string $password
  */
 class User extends Authenticatable
