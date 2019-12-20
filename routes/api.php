@@ -27,3 +27,6 @@ Route::middleware('auth:api')->get('/logout', 'AuthController@logout');
 
 // Words
 Route::get('words/{len}', 'WordsController@getRand')->where('len', '\d+');
+
+// Images
+Route::get('images/{len}', 'ImagesController@getRand')->where('len', '\d+');

@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Word;
-use Illuminate\Support\Facades\Auth;
 
 class WordsService
 {
