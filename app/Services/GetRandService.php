@@ -8,15 +8,21 @@ use App\Word;
 class GetRandService
 {
 
+   private int $maxLen = 50000;
+
    public function getWords(int $len)
    {
+      $len = $this->formatLen($len);
       $words = Word::limit($len)->inRandomOrder()->get();
+
       return $this->fitToLen($words->toArray(), $len);
    }
 
    public function getImages(int $len)
    {
+      $len = $this->formatLen($len);
       $images = Image::limit($len)->inRandomOrder()->get();
+
       return $this->fitToLen($images->toArray(), $len);
    }
 
@@ -32,4 +38,8 @@ class GetRandService
       return array_merge($data, $additional);
    }
 
+   private function formatLen($len)
+   {
+      return min(max($len, 0), $this->maxLen);
+   }
 }
