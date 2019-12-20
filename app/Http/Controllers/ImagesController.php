@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\ImagesService;
+use App\Services\GetRandService;
 
 class ImagesController extends Controller
 {
-    public function getRand(ImagesService $imagesService, int $len) {
-        return $imagesService->getRand($len);
+    public function getRand(GetRandService $getRandService, int $len) {
+        return $getRandService->getImages($len);
     }
 }
