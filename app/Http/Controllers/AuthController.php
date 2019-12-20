@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
    
-   public function login(Request $request, LoginService $loginService)
+   public function login(Request $req, LoginService $loginService)
    {
-      $token = $loginService->login($request->usernameOrEmail, $request->password);
+      $token = $loginService->login($req->usernameOrEmail, $req->password);
 
       if (!$token) {
          return response()->json(['message' => 'Checkout your credentials'], 401);
@@ -26,22 +26,22 @@ class AuthController extends Controller
          ->cookie('token', $token, null, '/', null, false, true);
    }
 
-   public function register(RegisterRequest $request, UserService $userService)
+   public function register(RegisterRequest $req, UserService $userService)
    {
       $user = new User();
-      $user->password = Hash::make($request->password);
-      return $userService->updateUserData($user, $request)->refresh();
+      $user->password = Hash::make($req->password);
+      return $userService->updateUserData($user, $req)->refresh();
    }
 
    public function registerAndLogin(
-      RegisterRequest $request,
+      RegisterRequest $req,
       UserService $userService,
       LoginService $loginService
    ) {
-      $this->register($request, $userService);
-      $request->usernameOrEmail = $request->username;
+      $this->register($req, $userService);
+      $req->usernameOrEmail = $req->username;
 
-      return $this->login($request, $loginService);
+      return $this->login($req, $loginService);
    }
 
    public function logout()
