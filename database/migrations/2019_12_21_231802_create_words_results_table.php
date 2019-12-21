@@ -15,8 +15,8 @@ class CreateWordsResultsTable extends Migration
     {
         Schema::create('words_results', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
-            $table->dateTime('startAt');
+            $table->unsignedBigInteger('user_id');
+            $table->dateTime('start_at');
             $table->dateTime('remember_time');
 
             $table->foreign('user_id')->references('id')->on('users');

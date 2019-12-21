@@ -15,9 +15,9 @@ class CreateWordsResultDataTable extends Migration
     {
         Schema::create('words_result_data', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('result_id');
-            $table->smallInteger('correct_id');
-            $table->smallInteger('actual_id');
+            $table->unsignedBigInteger('result_id');
+            $table->unsignedSmallInteger('correct_id');
+            $table->unsignedSmallInteger('actual_id');
             $table->integer('time');
 
             $table->foreign('result_id')->references('id')->on('words_results');
