@@ -17,7 +17,7 @@ class CreateWordsResultsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->dateTime('start_at');
-            $table->dateTime('remember_time');
+            $table->integer('remember_time');
 
             $table->foreign('user_id')->references('id')->on('users');
         });

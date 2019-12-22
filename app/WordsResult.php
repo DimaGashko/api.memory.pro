@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property Carbon $startAt
  * @property Carbon $rememberTime
+ * @property User $user
+ * @method User user()
  */
 class WordsResult extends Model
 {
