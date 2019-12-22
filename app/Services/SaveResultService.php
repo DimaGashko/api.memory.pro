@@ -40,7 +40,6 @@ class SaveResultService
     */
    public function saveWordsResult(User $user, array $resultData)
    {
-      return $this->gradeService->gradeWordsResult($resultData);
       DB::beginTransaction();
 
       $result = new WordsResult();

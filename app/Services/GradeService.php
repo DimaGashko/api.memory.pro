@@ -37,11 +37,29 @@ class GradeService
          return 0;
       }
 
-      $grade = ($correct + ($total - $time / 3)) / 5;
+      return $this->calcGradeCommonly($total, $correct, $time);
+   }
+
+   /**
+    * Calculate grade using common algorithm.
+    * Uses in trainings witch doesn't requite separate grade algorithm
+    */
+   private function calcGradeCommonly(int $total, int $correct, int $time)
+   {
+      $grade = ($correct + ($total - $time / 3000)) / 5;
+
+      return [
+         'grade' => $this->prepareGrade($grade),
+         'total' => $total,
+         'correct' => $correct,
+         'time' => $time,
+      ];
+
       return $this->prepareGrade($grade);
    }
 
-   public function prepareGrade($grade) {
+   private function prepareGrade($grade)
+   {
       return round(min(max($grade, 0), $this->MAX_GRADE));
    }
 }
