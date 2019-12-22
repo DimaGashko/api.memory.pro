@@ -28,6 +28,10 @@ class SaveWordsResultRequest extends FormRequest
          'grade' => 'required|numeric',
          'template' => 'required|string',
          'items' => 'required',
+         'items.*.time' => 'required|numeric|min:0',
+         'items.*.data' => 'required',
+         'items.*.data.*.correct' => 'required|numeric',
+         'items.*.data.*.actual' => 'required|numeric',
       ];
    }
 }
