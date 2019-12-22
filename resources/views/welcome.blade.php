@@ -1,102 +1,107 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <title>Api.memory.pro</title>
+    <meta name="description" content="Train you memory. You're going to become a memory master!">
 
-        <style>
-            html, body {
-                background-color: #212121;
-                color: #fff;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-            .full-height {
-                height: 100vh;
-            }
+    <style>
+        html,
+        body {
+            background-color: #212121;
+            color: #fff;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+            height: 100vh;
+            margin: 0;
+        }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+        .full-height {
+            height: 100vh;
+        }
 
-            .position-ref {
-                position: relative;
-            }
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+        .position-ref {
+            position: relative;
+        }
 
-            .content {
-                text-align: center;
-            }
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
 
-            .title {
-                font-size: calc(5vw + 20px);
-                margin: 0;
+        .content {
+            text-align: center;
+        }
 
-                text-transform: uppercase;
-            }
+        .title {
+            font-size: calc(5vw + 20px);
+            margin: 0;
 
-            .links > a {
-                color: #fff;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+            text-transform: uppercase;
+        }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
+        .links>a {
+            color: #fff;
+            padding: 0 25px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
 
-            ::selection {
-                background-color: #1B5E20;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+        .m-b-md {
+            margin-bottom: 30px;
+        }
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
+        ::selection {
+            background-color: #1B5E20;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-center position-ref full-height">
+        @if (Route::has('login'))
+        <div class="top-right links">
+            @auth
+            <a href="{{ url('/home') }}">Home</a>
+            @else
+            <a href="{{ route('login') }}">Login</a>
+
+            @if (Route::has('register'))
+            <a href="{{ route('register') }}">Register</a>
             @endif
+            @endauth
+        </div>
+        @endif
 
-            <div class="content">
-                <h1 class="title m-b-md">
-                    api.memory.pro
-                </h1>
+        <div class="content">
+            <h1 class="title m-b-md">
+                api.memory.pro
+            </h1>
 
-                <div class="links">
-                    <a target="_blank" rel="noopener noreferrer" href="https://online-memory.pro">Memory.pro</a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/api.memory.pro">API repo</a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/frontend.memory.pro">Frontend repo</a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/">Contacts</a>
-                </div>
+            <div class="links">
+                <a target="_blank" rel="noopener noreferrer" href="https://online-memory.pro">Memory.pro</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/api.memory.pro">API repo</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/frontend.memory.pro">Frontend repo</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/">Contacts</a>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
