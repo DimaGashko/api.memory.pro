@@ -5,8 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $time
- * @property WordsResult $result
+ * @property WordsResultItem $item
  * @property Word $correct
  * @property Word $actual
  */
@@ -15,7 +14,7 @@ class WordsResultData extends Model
     public $timestamps = false;
 
     /** @var array */
-    protected $fillable = ['time'];
+    protected $fillable = [];
 
     public function item()
     {

@@ -6,8 +6,9 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property Carbon $startAt
- * @property Carbon $rememberTime
+ * @property int $grade
+ * @property Carbon $start_at
+ * @property Carbon $remember_time
  * @property User $user
  * @property WordsResultItem[] $data
  */

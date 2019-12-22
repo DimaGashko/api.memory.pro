@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $time
  * @property WordsResult $result
- * @property Word $data
+ * @property WordsResultData[] $data
  */
 class WordsResultItem extends Model
 {
