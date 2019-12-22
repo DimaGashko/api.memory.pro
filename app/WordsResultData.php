@@ -17,9 +17,9 @@ class WordsResultData extends Model
     /** @var array */
     protected $fillable = ['time'];
 
-    public function result()
+    public function item()
     {
-        return $this->belongsTo('App\WordsResult');
+        return $this->belongsTo('App\WordsResultItem');
     }
 
     public function correct()
