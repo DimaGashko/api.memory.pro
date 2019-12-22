@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon $startAt
  * @property Carbon $rememberTime
  * @property User $user
- * @property WordsResultData[] $data
+ * @property WordsResultItem[] $data
  */
 class WordsResult extends Model
 {
@@ -23,8 +23,8 @@ class WordsResult extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function data()
+    public function items()
     {
-        return $this->hasMany('App\WordsResultData', 'result_id');
+        return $this->hasMany('App\WordsResultItem', 'result_id');
     }
 }

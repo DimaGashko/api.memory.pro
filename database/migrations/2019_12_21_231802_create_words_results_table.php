@@ -18,6 +18,7 @@ class CreateWordsResultsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->dateTime('start_at');
             $table->integer('remember_time');
+            $table->string('template', 50);
 
             $table->foreign('user_id')->references('id')->on('users');
         });
