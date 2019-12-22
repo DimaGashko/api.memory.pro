@@ -16,7 +16,7 @@ class WordsResult extends Model
     public $timestamps = false;
 
     /** @var array */
-    protected $fillable = ['start_at', 'remember_time'];
+    protected $fillable = ['start_at', 'remember_time', 'grade'];
 
     public function user()
     {
