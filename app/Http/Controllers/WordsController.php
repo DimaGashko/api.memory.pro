@@ -15,7 +15,10 @@ class WordsController extends Controller
 
     public function saveResult(SaveWordsResultRequest $req, SaveResultService $saveResultService) {
         return $saveResultService->saveWordsResult(Auth::user(), [
-
+            'startAt' => $req->start_at,
+            'rememberTime' => $req->remember_time,
+            'template' => $req->template,
+            'items' => $req->items,
         ]);
     }
 }

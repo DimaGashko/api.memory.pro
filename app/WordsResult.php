@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $grade
+ * @property string $template
  * @property Carbon $start_at
  * @property Carbon $remember_time
  * @property User $user
@@ -18,6 +19,8 @@ class WordsResult extends Model
 
     /** @var array */
     protected $fillable = ['start_at', 'remember_time', 'grade'];
+
+    protected $hidden = ['user'];
 
     public function user()
     {
