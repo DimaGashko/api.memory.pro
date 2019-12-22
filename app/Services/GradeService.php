@@ -11,12 +11,10 @@ class GradeService
    private $MAX_GRADE = 1000000;
 
    /**
-    * Update user info
-    *
-    * @param array $resultData (as in SaveResultService::saveWordsResult)
+    * @param array $resultData (as in SaveResultService::save*Result)
     * @return int
     */
-   public function gradeWordsResult(array $resultData)
+   public function gradeCommonResult(array $resultData)
    {
       $total = 0;
       $correct = 0;
@@ -47,14 +45,6 @@ class GradeService
    private function calcGradeCommonly(int $total, int $correct, int $time)
    {
       $grade = ($correct + ($total - $time / 3000)) / 5;
-
-      return [
-         'grade' => $this->prepareGrade($grade),
-         'total' => $total,
-         'correct' => $correct,
-         'time' => $time,
-      ];
-
       return $this->prepareGrade($grade);
    }
 

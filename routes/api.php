@@ -34,3 +34,4 @@ Route::middleware('auth:api')->put('/words/results/save', 'WordsController@saveR
 
 // Images
 Route::get('images/rand/{len}', 'ImagesController@getRand')->where('len', '\d+');
+Route::middleware('auth:api')->put('/images/results/save', 'ImagesController@saveResult');
