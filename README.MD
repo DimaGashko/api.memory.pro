@@ -45,6 +45,13 @@
 
 - Method: GET
 
+## Lang & techs
+
+- PHP
+- Laravel
+- Laravel Passport
+- MySql
+
 ## Other
 
 Frontend repo: [github.com/DimaGashko/frontend.memory.pro](https://github.com/DimaGashko/frontend.memory.pro)
