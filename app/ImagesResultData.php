@@ -18,7 +18,7 @@ class ImagesResultData extends Model
 
     public function item()
     {
-        return $this->belongsTo('App\ImageResultItem');
+        return $this->belongsTo('App\ImagesResultItem');
     }
 
     public function correct()

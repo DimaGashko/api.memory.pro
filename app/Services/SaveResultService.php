@@ -2,16 +2,21 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\DB;
+
 use App\User;
 
 use App\NumbersResult;
 use App\NumbersResultData;
 use App\NumbersResultItem;
-use Illuminate\Support\Facades\DB;
 
 use App\WordsResult;
 use App\WordsResultData;
 use App\WordsResultItem;
+
+use App\ImagesResult;
+use App\ImagesResultData;
+use App\ImagesResultItem;
 
 class SaveResultService
 {
@@ -26,8 +31,8 @@ class SaveResultService
 
    /**
     * @param array {
-    *   startAt: Carbon,
-    *   rememberTime: int,
+    *   start_at: Carbon,
+    *   remember_time: int,
     *   template: string,
     *   items: {
     *       time: number,
@@ -43,8 +48,8 @@ class SaveResultService
       DB::beginTransaction();
 
       $result = new WordsResult();
-      $result->start_at = $resultData['startAt'];
-      $result->remember_time = $resultData['rememberTime'];
+      $result->start_at = $resultData['start_at'];
+      $result->remember_time = $resultData['remember_time'];
       $result->template = $resultData['template'];
       $result->grade = $this->gradeService->gradeCommonResult($resultData);
 
@@ -75,28 +80,43 @@ class SaveResultService
    /**
     * @param array $resultData same as in saveWordsResult
     */
+
+   /**
+    * @param array {
+    *   start_at: Carbon,
+    *   remember_time: int,
+    *   items_size: string,
+    *   items: {
+    *       time: number,
+    *       data: {
+    *          correct: number,
+    *          actual: number,
+    *       }[],
+    *   }[],
+    * } $resultData
+    */
    public function saveImagesResult(User $user, array $resultData)
    {
       DB::beginTransaction();
 
-      $result = new NumbersResult();
-      $result->start_at = $resultData['startAt'];
-      $result->remember_time = $resultData['rememberTime'];
-      $result->template = $resultData['template'];
+      $result = new ImagesResult();
+      $result->start_at = $resultData['start_at'];
+      $result->remember_time = $resultData['remember_time'];
+      $result->items_size = $resultData['items_size'];
       $result->grade = $this->gradeService->gradeCommonResult($resultData);
 
       $result->user()->associate($user);
       $result->save();
 
       foreach ($resultData['items'] as $itemData) {
-         $item = new NumbersResultItem();
+         $item = new ImagesResultItem();
          $item->time = $itemData['time'];
 
          $item->result()->associate($result);
          $item->save();
 
          foreach ($itemData['data'] as $dataData) {
-            $data = new NumbersResultData();
+            $data = new ImagesResultData();
             $data->correct_id = $dataData['correct'];
             $data->actual_id = $dataData['actual'];
 

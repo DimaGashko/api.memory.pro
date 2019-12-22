@@ -16,9 +16,9 @@ class ImagesController extends Controller
     public function saveResult(SaveImagesResultRequest $req, SaveResultService $saveResultService)
     {
         return $saveResultService->saveImagesResult(Auth::user(), [
-            'startAt' => $req->start_at,
-            'rememberTime' => $req->remember_time,
-            'template' => $req->template,
+            'start_at' => $req->start_at,
+            'remember_time' => $req->remember_time,
+            'items_size' => $req->items_size,
             'items' => $req->items,
         ]);
     }

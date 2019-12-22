@@ -50,8 +50,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function numbersResults()
+    {
+        return $this->hasMany('App\NumbersResult');
+    }
+
     public function wordsResults()
     {
         return $this->hasMany('App\WordsResult');
+    }
+
+    public function ImagesResults()
+    {
+        return $this->hasMany('App\ImagesResult');
     }
 }

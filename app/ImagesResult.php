@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon $start_at
  * @property Carbon $remember_time
  * @property User $user
- * @property ImagesResultItem[] $data
+ * @property ImagesResultItem[] $items
  */
 class ImagesResult extends Model
 {
