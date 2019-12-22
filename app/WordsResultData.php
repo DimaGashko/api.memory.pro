@@ -9,9 +9,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property WordsResult $result
  * @property Word $correct
  * @property Word $actual
- * @method WordsResult result()
- * @method Word correct()
- * @method Word actual()
  */
 class WordsResultData extends Model
 {

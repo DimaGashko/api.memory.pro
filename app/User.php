@@ -31,10 +31,6 @@ class User extends Authenticatable
         'username', 'email', 'first_name', 'last_name', 
         'avatar', 'birth', 'remembered', 'password',
     ];
-    
-    protected $with = [
-        'wordsResults',
-    ];
 
     /**
      * The attributes that should be hidden for arrays.

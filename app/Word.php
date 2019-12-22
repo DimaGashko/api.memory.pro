@@ -5,12 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property string $val
+ * @property string $value
  */
 class Word extends Model
 {
     public $timestamps = false;
 
     /** @var array */
-    protected $fillable = ['val'];
+    protected $fillable = ['value'];
 }
