@@ -15,7 +15,10 @@ class CreateNumbersResultItemsTable extends Migration
     {
         Schema::create('numbers_result_items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->unsignedBigInteger('result_id');
+            $table->integer('time');
+
+            $table->foreign('result_id')->references('id')->on('numbers_results');
         });
     }
 

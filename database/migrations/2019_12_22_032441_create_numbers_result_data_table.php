@@ -15,7 +15,11 @@ class CreateNumbersResultDataTable extends Migration
     {
         Schema::create('numbers_result_data', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->unsignedBigInteger('item_id');
+            $table->unsignedTinyInteger('correct');
+            $table->unsignedTinyInteger('actual');
+
+            $table->foreign('item_id')->references('id')->on('words_result_items');
         });
     }
 

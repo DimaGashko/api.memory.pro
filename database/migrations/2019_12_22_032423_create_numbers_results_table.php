@@ -15,7 +15,13 @@ class CreateNumbersResultsTable extends Migration
     {
         Schema::create('numbers_results', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->unsignedBigInteger('user_id');
+            $table->dateTime('start_at');
+            $table->integer('remember_time');
+            $table->integer('grade');
+            $table->string('template', 50);
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
