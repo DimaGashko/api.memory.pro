@@ -25,7 +25,6 @@ class SaveWordsResultRequest extends FormRequest
       return [
          'start_at' => 'required|date',
          'remember_time' => 'required|numeric',
-         'grade' => 'required|numeric',
          'template' => 'required|string',
          'items' => 'required',
          'items.*.time' => 'required|numeric|min:0',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\GetRandService;
 use App\Http\Requests\SaveWordsResultRequest;
 use App\Services\SaveResultService;
+use Illuminate\Support\Facades\Auth;
 
 class WordsController extends Controller
 {
@@ -13,6 +14,8 @@ class WordsController extends Controller
     }
 
     public function saveResult(SaveWordsResultRequest $req, SaveResultService $saveResultService) {
-        return $saveResultService->saveWordsResult($req);
+        return $saveResultService->saveWordsResult(Auth::user(), [
+
+        ]);
     }
 }
