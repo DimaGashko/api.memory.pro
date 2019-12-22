@@ -44,3 +44,7 @@
 #### /auth/logout (get)
 
 - Method: GET
+
+## Other
+
+Frontend repo: [github.com/DimaGashko/frontend.memory.pro](https://github.com/DimaGashko/frontend.memory.pro)
