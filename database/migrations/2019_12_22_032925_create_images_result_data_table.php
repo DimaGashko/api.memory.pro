@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNumbersResultDataTable extends Migration
+class CreateImagesResultDataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateNumbersResultDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('numbers_result_data', function (Blueprint $table) {
+        Schema::create('images_result_data', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('item_id');
-            $table->unsignedTinyInteger('correct');
-            $table->unsignedTinyInteger('actual');
+            $table->unsignedSmallInteger('correct_id');
+            $table->unsignedSmallInteger('actual_id');
 
             $table->foreign('item_id')->references('id')->on('numbers_result_items');
+            $table->foreign('correct_id')->references('id')->on('images');
+            $table->foreign('actual_id')->references('id')->on('images');
         });
     }
 
@@ -30,6 +32,6 @@ class CreateNumbersResultDataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('numbers_result_data');
+        Schema::dropIfExists('images_result_data');
     }
 }
