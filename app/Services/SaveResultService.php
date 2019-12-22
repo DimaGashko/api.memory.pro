@@ -43,6 +43,43 @@ class SaveResultService
     *   }[],
     * } $resultData
     */
+   public function saveNumbersResult(User $user, array $resultData)
+   {
+      DB::beginTransaction();
+
+      $result = new NumbersResult();
+      $result->start_at = $resultData['start_at'];
+      $result->remember_time = $resultData['remember_time'];
+      $result->template = $resultData['template'];
+      $result->grade = $this->gradeService->gradeCommonResult($resultData);
+
+      $result->user()->associate($user);
+      $result->save();
+
+      foreach ($resultData['items'] as $itemData) {
+         $item = new NumbersResultItem();
+         $item->time = $itemData['time'];
+
+         $item->result()->associate($result);
+         $item->save();
+
+         foreach ($itemData['data'] as $dataData) {
+            $data = new NumbersResultData();
+            $data->correct = $dataData['correct'];
+            $data->actual = $dataData['actual'];
+
+            $data->item()->associate($item);
+            $data->save();
+         }
+      }
+
+      DB::commit();
+      return $result->loadMissing(['items.data']);
+   }
+
+   /**
+    * @param array $resultData same as in saveNumbersResult
+    */
    public function saveWordsResult(User $user, array $resultData)
    {
       DB::beginTransaction();
@@ -76,10 +113,6 @@ class SaveResultService
       DB::commit();
       return $result->loadMissing(['items.data.correct', 'items.data.actual']);
    }
-
-   /**
-    * @param array $resultData same as in saveWordsResult
-    */
 
    /**
     * @param array {

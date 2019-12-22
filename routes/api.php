@@ -26,7 +26,7 @@ Route::post('/register-and-login', 'AuthController@registerAndLogin');
 Route::middleware('auth:api')->get('/logout', 'AuthController@logout');
 
 // Numbers
-Route::middleware('auth:api')->put('/words/results/save', 'NumbersController@addResult');
+Route::middleware('auth:api')->put('/numbers/results/save', 'NumbersController@saveResult');
 
 // Words
 Route::get('words/rand/{len}', 'WordsController@getRand')->where('len', '\d+');
