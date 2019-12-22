@@ -2,14 +2,13 @@
 
 namespace App\Services;
 
-use App\User;
-use App\WordsResult;
-use App\WordsResultData;
-use App\WordsResultItem;
-use Illuminate\Support\Facades\DB;
-
 class GradeService
 {
+   private $MAX_WORDS_ERROR = 0.1;
+   private $MAX_NUMBERS_ERROR = 0.1;
+   private $MAX_IMAGES_ERROR = 0.1;
+
+   private $MAX_GRADE = 1000000;
 
    /**
     * Update user info
@@ -19,18 +18,30 @@ class GradeService
     */
    public function gradeWordsResult(array $resultData)
    {
-      
-      
+      $total = 0;
+      $correct = 0;
+      $time = 0;
+
       foreach ($resultData['items'] as $itemData) {
-         
-         
+         $total += count($itemData['data']);
+         $time += $itemData['time'];
+
          foreach ($itemData['data'] as $dataData) {
-            
+            if ($dataData['correct'] === $dataData['actual']) {
+               $correct++;
+            }
          }
       }
 
-      return 6;
+      if ($correct / $total < 1 - $this->MAX_WORDS_ERROR) {
+         return 0;
+      }
+
+      $grade = ($correct + ($total - $time / 3)) / 5;
+      return $this->prepareGrade($grade);
    }
 
-   
+   public function prepareGrade($grade) {
+      return round(min(max($grade, 0), $this->MAX_GRADE));
+   }
 }
