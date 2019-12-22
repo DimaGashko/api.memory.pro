@@ -50,18 +50,18 @@ class UserService
    private function validateAvatarUpdateRequest(Request $request)
    {
       $request->validate([
-         'avatar' => ['required', 'mimes:jpeg,png,gif,webp', 'max:' . 20 * 1024],
+         'avatar' => 'required|mimes:jpeg,png,gif,webp|max:' . 20 * 1024,
       ]);
    }
 
    private function validateUpdateRequest(Request $request)
    {
       $request->validate([
-         'username' => ['nullable', 'string', 'min:2', 'max:255'],
-         'email' => ['nullable', 'string', 'email', 'max:255'],
-         'first_name' => ['nullable', 'string', 'min:2', 'max:255'],
-         'last_name' => ['nullable', 'string', 'min:2', 'max:255'],
-         'birth' => ['nullable', 'date'],
+         'username' => 'nullable|string|min:2|max:255',
+         'email' => 'nullable|string|email|max:255',
+         'first_name' => 'nullable|string|min:2|max:255',
+         'last_name' => 'nullable|string|min:2|max:255',
+         'birth' => 'nullable|date',
       ]);
    }
 }

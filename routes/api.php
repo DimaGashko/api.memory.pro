@@ -25,8 +25,12 @@ Route::post('/register-and-login', 'AuthController@registerAndLogin');
 
 Route::middleware('auth:api')->get('/logout', 'AuthController@logout');
 
+// Numbers
+Route::middleware('auth:api')->put('/words/results/save', 'NumbersController@addResult');
+
 // Words
-Route::get('words/{len}', 'WordsController@getRand')->where('len', '\d+');
+Route::get('words/rand/{len}', 'WordsController@getRand')->where('len', '\d+');
+Route::middleware('auth:api')->put('/words/results/save', 'WordsController@saveResult');
 
 // Images
-Route::get('images/{len}', 'ImagesController@getRand')->where('len', '\d+');
+Route::get('images/rand/{len}', 'ImagesController@getRand')->where('len', '\d+');

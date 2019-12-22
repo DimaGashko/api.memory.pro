@@ -17,8 +17,8 @@ class CreateImagesResultsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->dateTime('start_at');
-            $table->integer('remember_time');
-            $table->integer('grade');
+            $table->unsignedMediumInteger('remember_time');
+            $table->mediumInteger('grade');
             $table->unsignedSmallInteger('items_size');
 
             $table->foreign('user_id')->references('id')->on('users');
