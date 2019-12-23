@@ -18,18 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Auth
-Route::post('/login', 'AuthController@login');
-Route::post('/register', 'AuthController@register');
-Route::post('/register-and-login', 'AuthController@registerAndLogin');
-
-Route::middleware('auth:api')->get('/logout', 'AuthController@logout');
-
 // Numbers
 Route::middleware('auth:api')->put('/numbers/results/save', 'NumbersController@saveResult');
 
 // Words
 Route::get('words/rand/{len}', 'WordsController@getRand')->where('len', '\d+');
+
 Route::middleware('auth:api')->put('/words/results/save', 'WordsController@saveResult');
 
 // Images
