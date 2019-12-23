@@ -14,6 +14,10 @@ class GetRandService
    {
       $len = $this->formatLen($len);
       $words = Word::limit($len)->inRandomOrder()->get();
+      
+      if (count($words) === 0) {
+         return abort('204', 'Not words in db');
+      }
 
       return $this->fitToLen($words->toArray(), $len);
    }
@@ -22,6 +26,10 @@ class GetRandService
    {
       $len = $this->formatLen($len);
       $images = Image::limit($len)->inRandomOrder()->get();
+
+      if (count($images) === 0) {
+         return abort('204', 'Not images in db');
+      }
 
       return $this->fitToLen($images->toArray(), $len);
    }
