@@ -16,7 +16,7 @@ class GetRandService
       $words = Word::limit($len)->inRandomOrder()->get();
       
       if (count($words) === 0) {
-         return abort('204', 'Not words in db');
+         return abort('204', 'No words in out db');
       }
 
       return $this->fitToLen($words->toArray(), $len);
@@ -28,7 +28,7 @@ class GetRandService
       $images = Image::limit($len)->inRandomOrder()->get();
 
       if (count($images) === 0) {
-         return abort('204', 'Not images in db');
+         return abort('204', 'No images in out db');
       }
 
       return $this->fitToLen($images->toArray(), $len);
@@ -37,7 +37,7 @@ class GetRandService
    private function fitToLen(array $data, int $len)
    {
       $additionalLen = $len - count($data);
-      $additional = $data;
+      $additional = [];
 
       for ($i = 0; $i < $additionalLen; $i++) {
          $additional[] = $data[array_rand($data)];
