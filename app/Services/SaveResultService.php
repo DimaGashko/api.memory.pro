@@ -49,8 +49,9 @@ class SaveResultService
 
         $result = new NumbersResult();
         $result->start_at = $resultData['start_at'];
-        $result->recall_time = $resultData['recall_time'];
         $result->preparation_time = $resultData['preparation_time'];
+        $result->recall_preparation_time = $resultData['recall_preparation_time'];
+        $result->recall_time = $resultData['recall_time'];
         $result->template = $resultData['template'];
         $result->grade = $this->gradeService->gradeCommonResult($resultData);
 
@@ -87,7 +88,8 @@ class SaveResultService
 
         $result = new WordsResult();
         $result->start_at = $resultData['start_at'];
-        $result->recall_time = $resultData['recall_time'];
+        $result->preparation_time = $resultData['preparation_time'];
+        $result->recall_preparation_time = $resultData['recall_preparation_time'];
         $result->recall_time = $resultData['recall_time'];
         $result->template = $resultData['template'];
         $result->grade = $this->gradeService->gradeCommonResult($resultData);
@@ -105,7 +107,7 @@ class SaveResultService
             foreach ($itemData['data'] as $dataData) {
                 $data = new WordsResultData();
                 $data->correct_id = $dataData['correct'];
-                $data->actual_id = $dataData['actual'];
+                $data->actual= $dataData['actual'];
 
                 $data->item()->associate($item);
                 $data->save();
@@ -136,7 +138,8 @@ class SaveResultService
 
         $result = new ImagesResult();
         $result->start_at = $resultData['start_at'];
-        $result->recall_time = $resultData['recall_time'];
+        $result->preparation_time = $resultData['preparation_time'];
+        $result->recall_preparation_time = $resultData['recall_preparation_time'];
         $result->recall_time = $resultData['recall_time'];
         $result->items_size = $resultData['items_size'];
         $result->grade = $this->gradeService->gradeCommonResult($resultData);

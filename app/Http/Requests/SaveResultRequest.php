@@ -25,13 +25,14 @@ class SaveResultRequest extends FormRequest
         return [
             'start_at' => 'required|date',
             'preparation_time' => 'required|numeric',
+            'recall_preparation_time' => 'required|numeric',
             'recall_time' => 'required|numeric',
             'template' => 'required|string',
             'items' => 'required',
             'items.*.time' => 'required|numeric|min:0',
             'items.*.data' => 'required',
             'items.*.data.*.correct' => 'required|numeric',
-            'items.*.data.*.actual' => 'required|numeric',
+            'items.*.data.*.actual' => 'required',
         ];
     }
 }

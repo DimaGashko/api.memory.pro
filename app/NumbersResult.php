@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $grade
  * @property Carbon $startAt
- * @property Carbon $recallTime
+ * @property int $preparation_time
+ * @property int $recall_preparation_time
+ * @property int $recallTime
  * @property User $user
  * @property NumbersResultItem[] $data
  */
@@ -17,7 +19,7 @@ class NumbersResult extends Model
     public $timestamps = false;
 
     /** @var array */
-    protected $fillable = ['start_at', 'recall_time', 'grade'];
+    protected $fillable = ['start_at', 'recall_time', 'preparation_time', 'recall_preparation_time', 'grade'];
 
     public function user()
     {

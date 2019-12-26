@@ -18,6 +18,7 @@ class CreateImagesResultsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->dateTime('start_at');
             $table->unsignedInteger('preparation_time');
+            $table->unsignedInteger('recall_preparation_time');
             $table->unsignedMediumInteger('recall_time');
             $table->mediumInteger('grade');
             $table->unsignedSmallInteger('items_size');
