@@ -105,7 +105,13 @@ class GradeService
    private function calcGradeCommonly(int $total, int $correct, int $time)
    {
       $grade = ($correct + ($total - $time / 3000)) / 5;
-      return $this->prepareGrade($grade);
+
+      return [
+        "grade" => $this->prepareGrade($grade),
+        "total" => $total,
+        "correct" => $correct,
+        "time" => $time,
+      ];
    }
 
    private function prepareGrade($grade)

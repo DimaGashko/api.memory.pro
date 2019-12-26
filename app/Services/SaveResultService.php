@@ -47,13 +47,15 @@ class SaveResultService
     {
         DB::beginTransaction();
 
+        $grade = $this->gradeService->gradeNumbersResult($resultData);
+
         $result = new NumbersResult();
         $result->start_at = $resultData['start_at'];
         $result->preparation_time = $resultData['preparation_time'];
         $result->recall_preparation_time = $resultData['recall_preparation_time'];
         $result->recall_time = $resultData['recall_time'];
         $result->template = $resultData['template'];
-        $result->grade = $this->gradeService->gradeNumbersResult($resultData);
+        $result->grade = $grade['grade'];
 
         if ($user) $result->user()->associate($user);
         $result->save();
@@ -86,13 +88,15 @@ class SaveResultService
     {
         DB::beginTransaction();
 
+        $grade = $this->gradeService->gradeWordsResult($resultData);
+
         $result = new WordsResult();
         $result->start_at = $resultData['start_at'];
         $result->preparation_time = $resultData['preparation_time'];
         $result->recall_preparation_time = $resultData['recall_preparation_time'];
         $result->recall_time = $resultData['recall_time'];
         $result->template = $resultData['template'];
-        $result->grade = $this->gradeService->gradeWordsResult($resultData);
+        $result->grade = $grade['grade'];
 
         if ($user) $result->user()->associate($user);
         $result->save();
@@ -136,13 +140,15 @@ class SaveResultService
     {
         DB::beginTransaction();
 
+        $grade = $this->gradeService->gradeImagesResult($resultData);
+
         $result = new ImagesResult();
         $result->start_at = $resultData['start_at'];
         $result->preparation_time = $resultData['preparation_time'];
         $result->recall_preparation_time = $resultData['recall_preparation_time'];
         $result->recall_time = $resultData['recall_time'];
         $result->items_size = $resultData['items_size'];
-        $result->grade = $this->gradeService->gradeImagesResult($resultData);
+        $result->grade = $grade['grade'];
 
         if ($user) $result->user()->associate($user);
         $result->save();
