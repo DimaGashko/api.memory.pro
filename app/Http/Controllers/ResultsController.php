@@ -64,4 +64,13 @@ class ResultsController extends Controller
             'items.data.correct', 'items.data.actual'
         ]);
     }
+
+    public function getImagesResult($id)
+    {
+        return ImagesResult::findOrFail($id)->loadMissing([
+            'items.data.correct', 'items.data.actual'
+        ]);
+    }
+
+    userNumberResults
 }
