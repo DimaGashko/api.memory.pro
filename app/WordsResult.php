@@ -22,7 +22,7 @@ class WordsResult extends Model
     /** @var array */
     protected $fillable = ['start_at', 'preparation_time', 'recall_preparation_time', 'recall_time', 'grade'];
 
-    protected $hidden = ['user'];
+    //protected $hidden = ['user'];
 
     public function user()
     {

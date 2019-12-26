@@ -22,7 +22,7 @@ class ResultsListService
             $res = $res->limit($options['limit']);
         }
 
-        return $res->get();
+        return $res->get()->loadMissing('user');
     }
 
     public function wordsList(array $options)
@@ -38,7 +38,7 @@ class ResultsListService
             $res = $res->limit($options['limit']);
         }
 
-        return $res->get();
+        return $res->get()->loadMissing('user');
     }
 
     public function imagesList(array $options)
@@ -54,7 +54,7 @@ class ResultsListService
             $res = $res->limit($options['limit']);
         }
 
-        return $res->get();
+        return $res->get()->loadMissing('user');
     }
 
 }
