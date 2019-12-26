@@ -18,18 +18,20 @@ Route::middleware(['auth:api', 'web'])->get('/user', function (Request $request)
     return $request->user();
 });
 
+Route::get('users/{id}', 'UsersController@getUser');
+
 // Rand
 Route::get('/rand/words/{len}', 'RandController@getRandWords')->where('len', '\d+');
 Route::get('/rand/images/{len}', 'RandController@getRandImages')->where('len', '\d+');
 
 // Results
-Route::get('results/numbers/{id}', 'ResultsController@getNumbersResult')->where('id', '\d+');
-Route::get('results/words/{id}', 'ResultsController@getWordsResult')->where('id', '\d+');
-Route::get('results/images/{id}', 'ResultsController@getImagesResult')->where('id', '\d+');
+Route::get('results/numbers/{id}', 'ResultsController@getNumbersResult');
+Route::get('results/words/{id}', 'ResultsController@getWordsResult');
+Route::get('results/images/{id}', 'ResultsController@getImagesResult');
 
-Route::get('results/numbers', 'ResultsController@getNumberResultsList');
-Route::get('results/words', 'ResultsController@getWordsResultsList');
-Route::get('results/images', 'ResultsController@getImagesResultsList');
+Route::get('results/numbers/', 'ResultsController@getNumberResultsList');
+Route::get('results/words/', 'ResultsController@getWordsResultsList');
+Route::get('results/images/', 'ResultsController@getImagesResultsList');
 
 Route::put('results/numbers', 'ResultsController@saveNumbersResult');
 Route::put('results/words', 'ResultsController@saveWordsResult');
