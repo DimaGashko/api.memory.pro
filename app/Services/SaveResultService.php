@@ -59,10 +59,6 @@ class SaveResultService
 
         if ($user) {
             $result->user()->associate($user);
-
-            $user->recalled += ($grade['grade'] > 0)
-                ? $grade['correct'] : 0;
-
             $user->save();
         }
 
@@ -108,10 +104,6 @@ class SaveResultService
 
         if ($user) {
             $result->user()->associate($user);
-
-            $user->recalled += ($grade['grade'] > 0)
-                ? $grade['correct'] : 0;
-
             $user->save();
         }
 
@@ -168,10 +160,6 @@ class SaveResultService
 
         if ($user) {
             $result->user()->associate($user);
-
-            $user->recalled += ($grade['grade'] > 0)
-                ? $grade['correct'] : 0;
-
             $user->save();
         }
 

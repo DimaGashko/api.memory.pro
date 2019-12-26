@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Image;
 use App\Word;
 
-class GetRandService
+class RandService
 {
 
    private int $maxLen = 50000;
@@ -14,7 +14,7 @@ class GetRandService
    {
       $len = $this->formatLen($len);
       $words = Word::limit($len)->inRandomOrder()->get();
-      
+
       if (count($words) === 0) {
          return abort('204', 'No words in out db');
       }
