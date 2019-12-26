@@ -23,9 +23,8 @@ Route::middleware('auth:api')->put('/numbers/results/save', 'NumbersController@s
 
 // Words
 Route::get('words/rand/{len}', 'WordsController@getRand')->where('len', '\d+');
-
-Route::middleware('auth:api')->put('/words/results/save', 'WordsController@saveResult');
+Route::put('/words/results/save', 'WordsController@saveResult');
 
 // Images
 Route::get('images/rand/{len}', 'ImagesController@getRand')->where('len', '\d+');
-Route::middleware('auth:api')->put('/images/results/save', 'ImagesController@saveResult');
+Route::put('/images/results/save', 'ImagesController@saveResult');

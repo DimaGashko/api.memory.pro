@@ -15,7 +15,7 @@ class CreateNumbersResultsTable extends Migration
     {
         Schema::create('numbers_results', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->dateTime('start_at');
             $table->unsignedInteger('preparation_time');
             $table->unsignedInteger('recall_preparation_time');

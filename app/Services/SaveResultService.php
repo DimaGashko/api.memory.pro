@@ -82,7 +82,7 @@ class SaveResultService
     /**
      * @param array $resultData same as in saveNumbersResult
      */
-    public function saveWordsResult(User $user, array $resultData)
+    public function saveWordsResult(array $resultData, User $user = null)
     {
         DB::beginTransaction();
 
@@ -94,7 +94,7 @@ class SaveResultService
         $result->template = $resultData['template'];
         $result->grade = $this->gradeService->gradeWordsResult($resultData);
 
-        $result->user()->associate($user);
+        if ($user) $result->user()->associate($user);
         $result->save();
 
         foreach ($resultData['items'] as $itemData) {
