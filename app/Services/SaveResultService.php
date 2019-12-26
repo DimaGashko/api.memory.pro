@@ -43,7 +43,7 @@ class SaveResultService
      *   }[],
      * } $resultData
      */
-    public function saveNumbersResult(User $user, array $resultData)
+    public function saveNumbersResult(array $resultData, User $user = null)
     {
         DB::beginTransaction();
 
@@ -55,7 +55,7 @@ class SaveResultService
         $result->template = $resultData['template'];
         $result->grade = $this->gradeService->gradeNumbersResult($resultData);
 
-        $result->user()->associate($user);
+        if ($user) $result->user()->associate($user);
         $result->save();
 
         foreach ($resultData['items'] as $itemData) {
@@ -132,7 +132,7 @@ class SaveResultService
      *   }[],
      * } $resultData
      */
-    public function saveImagesResult(User $user, array $resultData)
+    public function saveImagesResult(array $resultData, User $user = null)
     {
         DB::beginTransaction();
 
@@ -144,7 +144,7 @@ class SaveResultService
         $result->items_size = $resultData['items_size'];
         $result->grade = $this->gradeService->gradeImagesResult($resultData);
 
-        $result->user()->associate($user);
+        if ($user) $result->user()->associate($user);
         $result->save();
 
         foreach ($resultData['items'] as $itemData) {

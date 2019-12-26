@@ -15,13 +15,13 @@ class ImagesController extends Controller
 
     public function saveResult(SaveImagesResultRequest $req, SaveResultService $saveResultService)
     {
-        return $saveResultService->saveImagesResult(Auth::user(), [
+        return $saveResultService->saveImagesResult([
             'start_at' => $req->start_at,
             'preparation_time' => $req->preparation_time,
             'recall_preparation_time' => $req->recall_preparation_time,
             'recall_time' => $req->recall_time,
             'items_size' => $req->items_size,
             'items' => $req->items,
-        ]);
+        ], Auth::user());
     }
 }
