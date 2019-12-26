@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Word;
+
 class GradeService
 {
    private $MAX_WORDS_ERROR = 0.1;
@@ -14,7 +16,7 @@ class GradeService
     * @param array $resultData (as in SaveResultService::save*Result)
     * @return int
     */
-   public function gradeCommonResult(array $resultData)
+   public function gradeWordsResult(array $resultData)
    {
       $total = 0;
       $correct = 0;
@@ -25,7 +27,9 @@ class GradeService
          $time += $itemData['time'];
 
          foreach ($itemData['data'] as $dataData) {
-            if ($dataData['correct'] === $dataData['actual']) {
+            $correctValue = Word::find($dataData['correct'])->value;
+
+            if ( strcmp($correctValue, $dataData['actual']) == 0) {
                $correct++;
             }
          }
@@ -37,6 +41,62 @@ class GradeService
 
       return $this->calcGradeCommonly($total, $correct, $time);
    }
+
+    /**
+     * @param array $resultData (as in SaveResultService::save*Result)
+     * @return int
+     */
+    public function gradeNumbersResult(array $resultData)
+    {
+        $total = 0;
+        $correct = 0;
+        $time = 0;
+
+        foreach ($resultData['items'] as $itemData) {
+            $total += count($itemData['data']);
+            $time += $itemData['time'];
+
+            foreach ($itemData['data'] as $dataData) {
+                if ($dataData['correct'] === $dataData['actual']) {
+                    $correct++;
+                }
+            }
+        }
+
+        if ($correct / $total < 1 - $this->MAX_WORDS_ERROR) {
+            return 0;
+        }
+
+        return $this->calcGradeCommonly($total, $correct, $time);
+    }
+
+    /**
+     * @param array $resultData (as in SaveResultService::save*Result)
+     * @return int
+     */
+    public function gradeImagesResult(array $resultData)
+    {
+        $total = 0;
+        $correct = 0;
+        $time = 0;
+
+        foreach ($resultData['items'] as $itemData) {
+            $total += count($itemData['data']);
+            $time += $itemData['time'];
+
+            foreach ($itemData['data'] as $dataData) {
+                if ($dataData['correct'] === $dataData['actual']) {
+                    $correct++;
+                }
+            }
+        }
+
+        if ($correct / $total < 1 - $this->MAX_WORDS_ERROR) {
+            return 0;
+        }
+
+        return $this->calcGradeCommonly($total, $correct, $time);
+    }
 
    /**
     * Calculate grade using common algorithm.

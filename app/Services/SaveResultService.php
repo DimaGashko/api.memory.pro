@@ -53,7 +53,7 @@ class SaveResultService
         $result->recall_preparation_time = $resultData['recall_preparation_time'];
         $result->recall_time = $resultData['recall_time'];
         $result->template = $resultData['template'];
-        $result->grade = $this->gradeService->gradeCommonResult($resultData);
+        $result->grade = $this->gradeService->gradeNumbersResult($resultData);
 
         $result->user()->associate($user);
         $result->save();
@@ -92,7 +92,7 @@ class SaveResultService
         $result->recall_preparation_time = $resultData['recall_preparation_time'];
         $result->recall_time = $resultData['recall_time'];
         $result->template = $resultData['template'];
-        $result->grade = $this->gradeService->gradeCommonResult($resultData);
+        $result->grade = $this->gradeService->gradeWordsResult($resultData);
 
         $result->user()->associate($user);
         $result->save();
@@ -115,7 +115,7 @@ class SaveResultService
         }
 
         DB::commit();
-        return $result->loadMissing(['items.data.correct', 'items.data.actual']);
+        return $result->loadMissing(['items.data.correct']);
     }
 
     /**
@@ -142,7 +142,7 @@ class SaveResultService
         $result->recall_preparation_time = $resultData['recall_preparation_time'];
         $result->recall_time = $resultData['recall_time'];
         $result->items_size = $resultData['items_size'];
-        $result->grade = $this->gradeService->gradeCommonResult($resultData);
+        $result->grade = $this->gradeService->gradeImagesResult($resultData);
 
         $result->user()->associate($user);
         $result->save();
