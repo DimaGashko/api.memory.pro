@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
 
-    public function getUser(Request $req, $id)
+    public function getUser(Request $req, $username)
     {
         /** @var User */
-        $user = User::findOrFail($id);
+        $user = User::where('username', '=', $username)->firstOrFail();
         $curUser = $req->user('api');
 
         if ($user->username == $curUser->username) {
