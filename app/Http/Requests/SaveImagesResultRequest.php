@@ -24,6 +24,7 @@ class SaveImagesResultRequest extends FormRequest
    {
       return [
          'start_at' => 'required|date',
+         'preparation_time' => 'required',
          'recall_time' => 'required|numeric',
          'items_size' => 'required|numeric',
          'items' => 'required',
