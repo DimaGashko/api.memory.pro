@@ -14,7 +14,7 @@ class UsersController extends Controller
         $user = User::where('username', '=', $username)->firstOrFail();
         $curUser = $req->user('api');
 
-        if ($user->username == $curUser->username) {
+        if ($curUser && $user->username == $curUser->username) {
             return $user;
         }
 
