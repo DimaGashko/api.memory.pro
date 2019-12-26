@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveImagesResultRequest;
 use App\Http\Requests\SaveResultRequest;
+use App\ImagesResult;
+use App\NumbersResult;
 use App\Services\SaveResultService;
+use App\WordsResult;
 
 class ResultsController extends Controller
 {
@@ -42,5 +45,20 @@ class ResultsController extends Controller
             'items_size' => $req->items_size,
             'items' => $req->items,
         ], $req->user('api'));
+    }
+
+    public function getNumbersResult($id)
+    {
+        return NumbersResult::find($id);
+    }
+
+    public function getWordsResult($id)
+    {
+        return WordsResult::find($id);
+    }
+
+    public function getImagesResult($id)
+    {
+        return ImagesResult::find($id);
     }
 }
