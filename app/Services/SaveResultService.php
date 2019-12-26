@@ -98,7 +98,12 @@ class SaveResultService
         $result->template = $resultData['template'];
         $result->grade = $grade['grade'];
 
-        if ($user) $result->user()->associate($user);
+        if ($user) {
+            $result->user()->associate($user);
+            $user->recalled += $grade['correct'];
+            $user->save();
+        }
+
         $result->save();
 
         foreach ($resultData['items'] as $itemData) {

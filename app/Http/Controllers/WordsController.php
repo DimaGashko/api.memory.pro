@@ -21,6 +21,6 @@ class WordsController extends Controller
             'recall_time' => $req->recall_time,
             'template' => $req->template,
             'items' => $req->items,
-        ], Auth::user());
+        ], $req->user('api'));
     }
 }
