@@ -82,7 +82,7 @@ class SaveResultService
         }
 
         DB::commit();
-        return $result->loadMissing(['items.data']);
+        return $result->loadMissing('items.data');
     }
 
     /**
@@ -127,7 +127,7 @@ class SaveResultService
         }
 
         DB::commit();
-        return $result->loadMissing(['items.data.correct']);
+        return $result->loadMissing('items.data.correct');
     }
 
     /**

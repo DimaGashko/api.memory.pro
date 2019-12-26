@@ -24,7 +24,8 @@ class ResultsController extends Controller
         ],  $req->user('api'));
     }
 
-    public function saveWordsResult(SaveResultRequest $req, SaveResultService $saveResultService) {
+    public function saveWordsResult(SaveResultRequest $req, SaveResultService $saveResultService)
+    {
         return $saveResultService->saveWordsResult([
             'start_at' => $req->start_at,
             'preparation_time' => $req->preparation_time,
@@ -49,16 +50,18 @@ class ResultsController extends Controller
 
     public function getNumbersResult($id)
     {
-        return NumbersResult::find($id);
+        return NumbersResult::findOrFail($id)->loadMissing('items.data');
     }
 
     public function getWordsResult($id)
     {
-        return WordsResult::find($id);
+        return WordsResult::findOrFail($id)->loadMissing('items.data.correct');
     }
 
     public function getImagesResult($id)
     {
-        return ImagesResult::find($id);
+        return ImagesResult::findOrFail($id)->loadMissing([
+            'items.data.correct', 'items.data.actual'
+        ]);
     }
 }
