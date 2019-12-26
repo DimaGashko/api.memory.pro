@@ -20,11 +20,11 @@ class CreateUsersTable extends Migration
 
             $table->string('first_name');
             $table->string('last_name');
-            
+
             $table->string('avatar')->nullable();
             $table->date('birth')->nullable();
 
-            $table->unsignedInteger('remembered')->default(0);
+            $table->unsignedInteger('recalled')->default(0);
 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

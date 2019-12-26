@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $grade
  * @property string $template
  * @property Carbon $start_at
- * @property Carbon $remember_time
+ * @property Carbon $recall_time
  * @property User $user
  * @property WordsResultItem[] $data
  */
@@ -18,7 +18,7 @@ class WordsResult extends Model
     public $timestamps = false;
 
     /** @var array */
-    protected $fillable = ['start_at', 'remember_time', 'grade'];
+    protected $fillable = ['start_at', 'recall_time', 'grade'];
 
     protected $hidden = ['user'];
 

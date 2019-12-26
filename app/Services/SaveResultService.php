@@ -32,7 +32,7 @@ class SaveResultService
    /**
     * @param array {
     *   start_at: Carbon,
-    *   remember_time: int,
+    *   recall_time: int,
     *   template: string,
     *   items: {
     *       time: number,
@@ -49,7 +49,7 @@ class SaveResultService
 
       $result = new NumbersResult();
       $result->start_at = $resultData['start_at'];
-      $result->remember_time = $resultData['remember_time'];
+      $result->recall_time = $resultData['recall_time'];
       $result->template = $resultData['template'];
       $result->grade = $this->gradeService->gradeCommonResult($resultData);
 
@@ -86,7 +86,7 @@ class SaveResultService
 
       $result = new WordsResult();
       $result->start_at = $resultData['start_at'];
-      $result->remember_time = $resultData['remember_time'];
+      $result->recall_time = $resultData['recall_time'];
       $result->template = $resultData['template'];
       $result->grade = $this->gradeService->gradeCommonResult($resultData);
 
@@ -117,7 +117,7 @@ class SaveResultService
    /**
     * @param array {
     *   start_at: Carbon,
-    *   remember_time: int,
+    *   recall_time: int,
     *   items_size: string,
     *   items: {
     *       time: number,
@@ -134,7 +134,7 @@ class SaveResultService
 
       $result = new ImagesResult();
       $result->start_at = $resultData['start_at'];
-      $result->remember_time = $resultData['remember_time'];
+      $result->recall_time = $resultData['recall_time'];
       $result->items_size = $resultData['items_size'];
       $result->grade = $this->gradeService->gradeCommonResult($resultData);
 

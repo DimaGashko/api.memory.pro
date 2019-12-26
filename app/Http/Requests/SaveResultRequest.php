@@ -24,7 +24,7 @@ class SaveResultRequest extends FormRequest
    {
       return [
          'start_at' => 'required|date',
-         'remember_time' => 'required|numeric',
+         'recall_time' => 'required|numeric',
          'template' => 'required|string',
          'items' => 'required',
          'items.*.time' => 'required|numeric|min:0',

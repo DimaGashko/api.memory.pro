@@ -20,6 +20,6 @@ $factory->define(WordsResult::class, function (Faker $faker) {
     return [
         'user_id' => rand(1, 10),
         'start_at' => $faker->dateTime(),
-        'remember_time' => rand(1000, 100000),
+        'recall_time' => rand(1000, 100000),
     ];
 });
