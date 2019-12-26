@@ -30,9 +30,9 @@ Route::get('results/numbers/{id}', 'ResultsController@getNumbersResult');
 Route::get('results/words/{id}', 'ResultsController@getWordsResult');
 Route::get('results/images/{id}', 'ResultsController@getImagesResult');
 
-Route::get('results/numbers/', 'ResultsController@getNumberResultsList');
-Route::get('results/words/', 'ResultsController@getWordsResultsList');
-Route::get('results/images/', 'ResultsController@getImagesResultsList');
+Route::post('results/numbers/', 'ResultsController@getNumbersResultsList');
+Route::post('results/words/', 'ResultsController@getWordsResultsList');
+Route::post('results/images/', 'ResultsController@getImagesResultsList');
 
 Route::put('results/numbers', 'ResultsController@saveNumbersResult');
 Route::put('results/words', 'ResultsController@saveWordsResult');

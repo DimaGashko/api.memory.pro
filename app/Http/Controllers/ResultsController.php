@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveImagesResultRequest;
 use App\Http\Requests\SaveResultRequest;
+use App\Http\Requests\WordsResultsListRequest;
 use App\ImagesResult;
 use App\NumbersResult;
+use App\Services\ResultsListService;
 use App\Services\SaveResultService;
 use App\WordsResult;
 
@@ -48,6 +50,27 @@ class ResultsController extends Controller
         ], $req->user('api'));
     }
 
+    public function getWordsResultsList(WordsResultsListRequest $req, ResultsListService $resultsListService)
+    {
+        return $resultsListService->wordsList([
+            'user_id' => $req['user_id'],
+        ]);
+    }
+
+    public function getNumbersResultsList(WordsResultsListRequest $req, ResultsListService $resultsListService)
+    {
+        return $resultsListService->numbersList([
+            'user_id' => $req['user_id'],
+        ]);
+    }
+
+    public function getImagesResultsList(WordsResultsListRequest $req, ResultsListService $resultsListService)
+    {
+        return $resultsListService->imagesList([
+            'user_id' => $req['user_id'],
+        ]);
+    }
+
     public function getNumbersResult($id)
     {
         return NumbersResult::findOrFail($id)->loadMissing('items.data');
@@ -64,13 +87,4 @@ class ResultsController extends Controller
             'items.data.correct', 'items.data.actual'
         ]);
     }
-
-    public function getImagesResult($id)
-    {
-        return ImagesResult::findOrFail($id)->loadMissing([
-            'items.data.correct', 'items.data.actual'
-        ]);
-    }
-
-    userNumberResults
 }
