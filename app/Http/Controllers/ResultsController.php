@@ -35,7 +35,7 @@ class ResultsController extends Controller
         ], $req->user('api'));
     }
 
-    public function saveResult(SaveImagesResultRequest $req, SaveResultService $saveResultService)
+    public function saveImagesResult(SaveImagesResultRequest $req, SaveResultService $saveResultService)
     {
         return $saveResultService->saveImagesResult([
             'start_at' => $req->start_at,
