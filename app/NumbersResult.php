@@ -21,6 +21,8 @@ class NumbersResult extends Model
     /** @var array */
     protected $fillable = ['start_at', 'recall_time', 'preparation_time', 'recall_preparation_time', 'grade'];
 
+    protected $hidden = ['user'];
+
     public function user()
     {
         return $this->belongsTo('App\User');
