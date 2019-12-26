@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -15,7 +14,7 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $curUser = $req->user('api');
 
-        if ($user->is($curUser)) {
+        if ($user->username == $curUser->username) {
             return $user;
         }
 
