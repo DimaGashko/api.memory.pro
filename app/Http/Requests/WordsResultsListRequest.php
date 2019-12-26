@@ -24,6 +24,7 @@ class WordsResultsListRequest extends FormRequest
     {
         return [
             'user_id' => 'numeric',
+            'limit' => 'numeric',
         ];
     }
 }

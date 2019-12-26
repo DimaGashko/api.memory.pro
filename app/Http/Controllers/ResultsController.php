@@ -54,6 +54,7 @@ class ResultsController extends Controller
     {
         return $resultsListService->wordsList([
             'user_id' => $req['user_id'],
+            'limit' => $req['limit'],
         ]);
     }
 
@@ -61,6 +62,7 @@ class ResultsController extends Controller
     {
         return $resultsListService->numbersList([
             'user_id' => $req['user_id'],
+            'limit' => $req['limit'],
         ]);
     }
 
@@ -68,6 +70,7 @@ class ResultsController extends Controller
     {
         return $resultsListService->imagesList([
             'user_id' => $req['user_id'],
+            'limit' => $req['limit'],
         ]);
     }
 

@@ -17,6 +17,10 @@ class ResultsListService
             $res = $res->where('user_id', '=', $options['user_id']);
         }
 
+        if (isset($options['limit'])) {
+            $res = $res->limit($options['limit']);
+        }
+
         return $res->get();
     }
 
@@ -28,6 +32,10 @@ class ResultsListService
             $res = $res->where('user_id', '=', $options['user_id']);
         }
 
+        if (isset($options['limit'])) {
+            $res = $res->limit($options['limit']);
+        }
+
         return $res->get();
     }
 
@@ -37,6 +45,10 @@ class ResultsListService
 
         if (isset($options['user_id'])) {
             $res = $res->where('user_id', '=', $options['user_id']);
+        }
+
+        if (isset($options['limit'])) {
+            $res = $res->limit($options['limit']);
         }
 
         return $res->get();
