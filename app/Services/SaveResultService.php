@@ -57,7 +57,15 @@ class SaveResultService
         $result->template = $resultData['template'];
         $result->grade = $grade['grade'];
 
-        if ($user) $result->user()->associate($user);
+        if ($user) {
+            $result->user()->associate($user);
+
+            $user->recalled += ($grade['grade'] > 0)
+                ? $grade['correct'] : 0;
+
+            $user->save();
+        }
+
         $result->save();
 
         foreach ($resultData['items'] as $itemData) {
@@ -100,7 +108,10 @@ class SaveResultService
 
         if ($user) {
             $result->user()->associate($user);
-            $user->recalled += $grade['correct'];
+
+            $user->recalled += ($grade['grade'] > 0)
+                ? $grade['correct'] : 0;
+
             $user->save();
         }
 
@@ -116,7 +127,7 @@ class SaveResultService
             foreach ($itemData['data'] as $dataData) {
                 $data = new WordsResultData();
                 $data->correct_id = $dataData['correct'];
-                $data->actual= $dataData['actual'];
+                $data->actual = $dataData['actual'];
 
                 $data->item()->associate($item);
                 $data->save();
@@ -155,7 +166,15 @@ class SaveResultService
         $result->items_size = $resultData['items_size'];
         $result->grade = $grade['grade'];
 
-        if ($user) $result->user()->associate($user);
+        if ($user) {
+            $result->user()->associate($user);
+
+            $user->recalled += ($grade['grade'] > 0)
+                ? $grade['correct'] : 0;
+
+            $user->save();
+        }
+
         $result->save();
 
         foreach ($resultData['items'] as $itemData) {
