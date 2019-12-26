@@ -19,7 +19,8 @@ Route::middleware(['auth:api', 'web'])->get('/user', function (Request $request)
 });
 
 // Users
-Route::get('users/{username}', 'UsersController@getUser');
+Route::get('/users', 'UsersController@getUsersList');
+Route::get('/users/{username}', 'UsersController@getUser');
 
 // Rand
 Route::get('/rand/words/{len}', 'RandController@randWords')->where('len', '\d+');

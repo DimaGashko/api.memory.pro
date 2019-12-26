@@ -27,4 +27,16 @@ class UsersController extends Controller
         ];
     }
 
+    public function getUsersList()
+    {
+        return User::all()->map(function ($user) {
+            return [
+                'id' => $user->id,
+                'user_name' => $user->username,
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
+                'avatar' => $user->avatar,
+            ];
+        });
+    }
 }
