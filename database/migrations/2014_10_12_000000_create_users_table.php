@@ -24,8 +24,6 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->date('birth')->nullable();
 
-            $table->unsignedInteger('recalled')->default(0);
-
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
