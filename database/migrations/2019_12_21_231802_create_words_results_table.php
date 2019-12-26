@@ -18,7 +18,6 @@ class CreateWordsResultsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->dateTime('start_at');
             $table->unsignedInteger('preparation_time');
-            $table->unsignedInteger('');
             $table->unsignedInteger('recall_time');
             $table->unsignedMediumInteger('grade');
             $table->string('template', 50);

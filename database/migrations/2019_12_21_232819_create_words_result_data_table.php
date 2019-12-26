@@ -17,11 +17,10 @@ class CreateWordsResultDataTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('item_id');
             $table->unsignedSmallInteger('correct_id');
-            $table->unsignedSmallInteger('actual_id');
+            $table->string('actual', 30);
 
             $table->foreign('item_id')->references('id')->on('words_result_items');
             $table->foreign('correct_id')->references('id')->on('words');
-            $table->foreign('actual_id')->references('id')->on('words');
         });
     }
 
