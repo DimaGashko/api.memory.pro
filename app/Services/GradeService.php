@@ -29,7 +29,7 @@ class GradeService
             foreach ($itemData['data'] as $dataData) {
                 $correctValue = Word::find($dataData['correct'])->value;
 
-                if (strcmp($correctValue, $dataData['actual']) == 0) {
+                if (strcasecmp($correctValue, $dataData['actual']) == 0) {
                     $correct++;
                 }
             }

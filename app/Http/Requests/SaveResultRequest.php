@@ -32,7 +32,7 @@ class SaveResultRequest extends FormRequest
             'items.*.time' => 'required|numeric|min:0',
             'items.*.data' => 'required',
             'items.*.data.*.correct' => 'required|numeric',
-            'items.*.data.*.actual' => 'required',
+            'items.*.data.*.actual' => '',
         ];
     }
 }
