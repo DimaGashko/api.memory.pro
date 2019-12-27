@@ -17,7 +17,7 @@ class CreateImagesResultDataTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('item_id');
             $table->unsignedSmallInteger('correct_id');
-            $table->unsignedSmallInteger('actual_id');
+            $table->unsignedSmallInteger('actual_id')->nullable();
 
             $table->foreign('item_id')->references('id')->on('images_result_items');
             $table->foreign('correct_id')->references('id')->on('images');

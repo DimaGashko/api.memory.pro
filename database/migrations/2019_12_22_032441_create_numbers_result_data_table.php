@@ -17,7 +17,7 @@ class CreateNumbersResultDataTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('item_id');
             $table->unsignedTinyInteger('correct');
-            $table->unsignedTinyInteger('actual');
+            $table->unsignedTinyInteger('actual')->nullable();
 
             $table->foreign('item_id')->references('id')->on('numbers_result_items');
         });
