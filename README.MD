@@ -52,6 +52,7 @@
 - Laravel Passport
 - MySql
 - Vue
+- SSH
 
 ## Other
 
