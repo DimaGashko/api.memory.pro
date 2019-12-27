@@ -10,6 +10,7 @@ use App\NumbersResult;
 use App\Services\ResultsListService;
 use App\Services\SaveResultService;
 use App\WordsResult;
+use Carbon\Carbon;
 
 class ResultsController extends Controller
 {
@@ -17,7 +18,7 @@ class ResultsController extends Controller
     public function saveNumbersResult(SaveResultRequest $req, SaveResultService $saveResultService)
     {
         return $saveResultService->saveNumbersResult([
-            'start_at' => $req->start_at,
+            'start_at' => new Carbon($req->start_at),
             'preparation_time' => $req->preparation_time,
             'recall_preparation_time' => $req->recall_preparation_time,
             'recall_time' => $req->recall_time,
@@ -29,7 +30,7 @@ class ResultsController extends Controller
     public function saveWordsResult(SaveResultRequest $req, SaveResultService $saveResultService)
     {
         return $saveResultService->saveWordsResult([
-            'start_at' => $req->start_at,
+            'start_at' => new Carbon($req->start_at),
             'preparation_time' => $req->preparation_time,
             'recall_preparation_time' => $req->recall_preparation_time,
             'recall_time' => $req->recall_time,
@@ -41,7 +42,7 @@ class ResultsController extends Controller
     public function saveImagesResult(SaveImagesResultRequest $req, SaveResultService $saveResultService)
     {
         return $saveResultService->saveImagesResult([
-            'start_at' => $req->start_at,
+            'start_at' => new Carbon($req->start_at),
             'preparation_time' => $req->preparation_time,
             'recall_preparation_time' => $req->recall_preparation_time,
             'recall_time' => $req->recall_time,
