@@ -51,6 +51,7 @@
 - Laravel
 - Laravel Passport
 - MySql
+- Vue
 
 ## Other
 
