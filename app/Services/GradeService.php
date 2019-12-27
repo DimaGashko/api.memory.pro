@@ -16,6 +16,41 @@ class GradeService
      * @param array $resultData (as in SaveResultService::save*Result)
      * @return int
      */
+    public function gradeNumbersResult(array $resultData)
+    {
+        $total = 0;
+        $correct = 0;
+        $time = 0;
+
+        foreach ($resultData['items'] as $itemData) {
+            $total += count($itemData['data']);
+            $time += $itemData['time'];
+
+            foreach ($itemData['data'] as $dataData) {
+                if ($dataData['correct'] === +$dataData['actual']) {
+                    $correct++;
+                }
+            }
+        }
+
+        if ($correct / $total < 1 - $this->MAX_NUMBERS_ERROR) {
+            $grade = 0;
+        } else {
+            $grade =  $this->calcGradeCommonly($total, $correct, $time);
+        }
+
+        return [
+            "grade" => $grade,
+            "total" => $total,
+            "correct" => $correct,
+            "time" => $time,
+        ];
+    }
+
+    /**
+     * @param array $resultData (as in SaveResultService::save*Result)
+     * @return int
+     */
     public function gradeWordsResult(array $resultData)
     {
         $total = 0;
@@ -40,41 +75,6 @@ class GradeService
             $grade = 0;
         } else {
             $grade = $this->calcGradeCommonly($total, $correct, $time);
-        }
-
-        return [
-            "grade" => $grade,
-            "total" => $total,
-            "correct" => $correct,
-            "time" => $time,
-        ];
-    }
-
-    /**
-     * @param array $resultData (as in SaveResultService::save*Result)
-     * @return int
-     */
-    public function gradeNumbersResult(array $resultData)
-    {
-        $total = 0;
-        $correct = 0;
-        $time = 0;
-
-        foreach ($resultData['items'] as $itemData) {
-            $total += count($itemData['data']);
-            $time += $itemData['time'];
-
-            foreach ($itemData['data'] as $dataData) {
-                if ($dataData['correct'] === $dataData['actual']) {
-                    $correct++;
-                }
-            }
-        }
-
-        if ($correct / $total < 1 - $this->MAX_NUMBERS_ERROR) {
-            $grade = 0;
-        } else {
-            $grade =  $this->calcGradeCommonly($total, $correct, $time);
         }
 
         return [
