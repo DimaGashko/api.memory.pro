@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Services;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class UserService
 {

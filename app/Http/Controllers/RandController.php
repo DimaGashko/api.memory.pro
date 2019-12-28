@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Controllers\RandService;
+use App\Services\RandService;
 
 class RandController extends Controller
 {

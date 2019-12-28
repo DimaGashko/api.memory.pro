@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Controllers\ResultsListService;
-use App\Controllers\SaveResultService;
 use App\Http\Requests\SaveImagesResultRequest;
 use App\Http\Requests\SaveResultRequest;
 use App\Http\Requests\WordsResultsListRequest;
 use App\ImagesResult;
 use App\NumbersResult;
+use App\Services\ResultsListService;
+use App\Services\SaveResultService;
 use App\WordsResult;
 use Carbon\Carbon;
 
