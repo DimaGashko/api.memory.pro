@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Controllers;
 
 use App\Image;
 use App\Word;
