@@ -38,3 +38,9 @@ Route::post('results/images/', 'ResultsController@getImagesResultsList');
 Route::put('results/numbers', 'ResultsController@saveNumbersResult');
 Route::put('results/words', 'ResultsController@saveWordsResult');
 Route::put('results/images', 'ResultsController@saveImagesResult');
+
+// data sets
+
+Route::put('dataset/words/{set}', 'DatasetController@addWords');
+Route::put('dataset/images/{set}', 'DatasetController@addWords');
+
