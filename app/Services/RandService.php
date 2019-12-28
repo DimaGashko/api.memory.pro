@@ -8,7 +8,7 @@ use App\Word;
 class RandService
 {
 
-   private int $maxLen = 50000;
+   private $maxLen = 50000;
 
    public function getWords(int $len)
    {
