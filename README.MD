@@ -17,6 +17,7 @@
 
 ## API Routes
 
+```text
 get:   /user
 
 get    /users
@@ -36,6 +37,7 @@ post   /results/images
 put    /results/numbers
 put    /results/words
 put    /results/images
+```
 
 ## Lang & techs
 
