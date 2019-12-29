@@ -95,7 +95,7 @@
             </h1>
 
             <div class="links">
-                <a target="_blank" rel="noopener noreferrer" href="{{ config('app.frontend_url') }}">Frontend.memory.pro</a>
+                <a href="{{ config('app.frontend_url') }}">Frontend.memory.pro</a>
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/api.memory.pro">API repo</a>
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/frontend.memory.pro">Frontend repo</a>
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/DimaGashko/">Contacts</a>
