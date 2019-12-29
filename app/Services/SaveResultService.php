@@ -51,9 +51,9 @@ class SaveResultService
 
         $result = new NumbersResult();
         $result->start_at = $resultData['start_at'];
-        $result->preparation_time = $resultData['preparation_time'];
-        $result->recall_preparation_time = $resultData['recall_preparation_time'];
-        $result->recall_time = $resultData['recall_time'];
+        $result->preparation_time = $resultData['preparation_time'] ^ 0;
+        $result->recall_preparation_time = $resultData['recall_preparation_time'] ^ 0;
+        $result->recall_time = $resultData['recall_time'] ^ 0;
         $result->template = $resultData['template'];
         $result->grade = $grade['grade'];
 
@@ -96,9 +96,9 @@ class SaveResultService
 
         $result = new WordsResult();
         $result->start_at = $resultData['start_at'];
-        $result->preparation_time = $resultData['preparation_time'];
-        $result->recall_preparation_time = $resultData['recall_preparation_time'];
-        $result->recall_time = $resultData['recall_time'];
+        $result->preparation_time = $resultData['preparation_time'] ^ 0;
+        $result->recall_preparation_time = $resultData['recall_preparation_time'] ^ 0;
+        $result->recall_time = $resultData['recall_time'] ^ 0;
         $result->template = $resultData['template'];
         $result->grade = $grade['grade'];
 
@@ -152,9 +152,9 @@ class SaveResultService
 
         $result = new ImagesResult();
         $result->start_at = $resultData['start_at'];
-        $result->preparation_time = $resultData['preparation_time'];
-        $result->recall_preparation_time = $resultData['recall_preparation_time'];
-        $result->recall_time = $resultData['recall_time'];
+        $result->preparation_time = $resultData['preparation_time'] ^ 0;
+        $result->recall_preparation_time = $resultData['recall_preparation_time'] ^ 0;
+        $result->recall_time = $resultData['recall_time'] ^ 0;
         $result->items_size = $resultData['items_size'];
         $result->grade = $grade['grade'];
 
