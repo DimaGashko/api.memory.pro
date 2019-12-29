@@ -17,33 +17,25 @@
 
 ## API Routes
 
-### Auth
+get:   /user
 
-#### /auth/register
+get    /users
+get    /users/{username}
 
-- Method: POST
-- data:
-  - username
-  - email
-  - first_name
-  - last_name
-  - birth
+get    /rand/words/{len}
+get    /rand/images/{len}
 
-#### /auth/login
+get    /results/numbers/{id}
+get    /results/words/{id}
+get    /results/images/{id}
 
-- Method: POST
-- data:
-  - usernameOrEmail
-  - password
+post   /results/numbers/
+post   /results/words
+post   /results/images
 
-#### /auth/register-and-login (post)
-
-- Method: POST
-- data: as /auth/register
-
-#### /auth/logout (get)
-
-- Method: GET
+put    /results/numbers
+put    /results/words
+put    /results/images
 
 ## Lang & techs
 
