@@ -41,6 +41,6 @@ Route::put('results/images', 'ResultsController@saveImagesResult');
 
 // data sets
 
-Route::put('dataset/words/{set}', 'DatasetController@addWords');
-Route::put('dataset/images/{set}', 'DatasetController@addWords');
+Route::put('dataset/words/', 'DatasetController@addWords');
+Route::put('dataset/images/', 'DatasetController@addWords');
 

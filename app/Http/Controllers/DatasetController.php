@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Image;
 use App\Word;
+use GuzzleHttp\Psr7\Request;
 
 class DatasetController extends Controller
 {
-    public function addWords(string $set) {
-        $dataset = explode(',', $set);
+    public function addWords(Request $req) {
+        $dataset = explode(',', $req->list);
 
         foreach ($dataset as $item) {
             $word = new Word();
@@ -17,9 +18,9 @@ class DatasetController extends Controller
         }
     }
 
-    public function addImages(string $set)
+    public function addImages(Request $req)
     {
-        $dataset = explode(',', $set);
+        $dataset = explode(',', $req->list);
 
         foreach ($dataset as $item) {
             $image = new Image();
