@@ -27,7 +27,7 @@ class UsersController extends Controller
         ];
     }
 
-    public function getUsersList(Request $req)
+    public function getUsersList()
     {
         return User::all()->map(function ($user) {
             return [
