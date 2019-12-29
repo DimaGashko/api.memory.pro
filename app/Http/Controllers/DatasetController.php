@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Image;
 use App\Word;
-use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 
 class DatasetController extends Controller
 {
