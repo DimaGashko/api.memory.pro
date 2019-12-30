@@ -39,7 +39,7 @@ put    /results/words
 put    /results/images
 ```
 
-[More details here](./routes/api.php)
+More details [here](./routes/api.php)
 
 ## Lang & techs
 
