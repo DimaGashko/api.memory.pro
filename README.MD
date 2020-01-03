@@ -49,6 +49,7 @@ More details [here](./routes/api.php)
 - MySql
 - Vue
 - SSH
+- Heroku
 
 ## Other
 
